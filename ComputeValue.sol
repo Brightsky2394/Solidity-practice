@@ -22,3 +22,18 @@ contract ComputeValue {
         return quotient;
     }
 }
+
+contract SignedExponentiation {
+    function NumPower(int base, int exponent) external pure returns (int) {
+        require(exponent >= 0, "Exponent must be non positive");
+        if (base == 0 && exponent == 0) {
+            revert("Operation is undefined");
+        }
+
+        int answer = 1;
+        for (int i = 0; i < exponent; i++) {
+            answer *= base;
+        }
+        return answer;
+    }
+}
