@@ -65,7 +65,7 @@ contract Helper {
         return abi.encodePacked(byteCode, abi.encode(_x, _y));
     }
 
-    function getCalldata(address _owner) external pure returns () {
+    function getCalldata(address _owner) external pure returns (bytes memory) {
         return abi.encodeWithSignature("setOwner(address)", _owner);
     }
 }
