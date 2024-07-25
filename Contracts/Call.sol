@@ -33,7 +33,7 @@ contract Call {
         uint _x
     ) external payable {
         (bool success, bytes memory _data) = _testCall.call{value: msg.value}(
-            abi.encodeWithSignature("foo(string,uint)", _message, _x)
+            abi.encodeWithSignature("foo(string,uint256)", _message, _x)
         );
         require(success, "Call failed");
         data = _data;
