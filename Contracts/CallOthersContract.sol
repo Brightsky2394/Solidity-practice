@@ -12,7 +12,7 @@ contract CallTestContract {
     }
 
     function callSetXandSendEther(address _test, uint _x) external payable {
-        TestContract(_test).setXandSendEther(_x);
+        TestContract(_test).setXandReceiveEther{value: msg.value}(_x);
     }
 
     function callGetXandValue(
@@ -34,7 +34,7 @@ contract TestContract {
         return x;
     }
 
-    function setXandSendEther(uint _x) external payable {
+    function setXandReceiveEther(uint _x) external payable {
         x = _x;
         value = msg.value;
     }
